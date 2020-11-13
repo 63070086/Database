@@ -1,50 +1,38 @@
+<html>
+<head>
+<title>ITF Lab</title>
+</head>
+<body>
 <?php
 $conn = mysqli_init();
-mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306)
-if(mysqli_connect_errno($conn)){
-  die('Failed to connect'.mysqli_connect_error());
+mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
+if (mysqli_connect_errno($conn))
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="container" style="width:1000px;margin-top:50px;">
-<table class="table table-striped table-bordered">
-  <tr class="bg-info">
-    <th>Link</th>
-    <th>Name</th>
-    <th>Commemt</th>
-    <th>Link</th>
-    <th>Edit and Delete</th>
+<table width="600" border="1">
+  <tr>
+    <th width="100"> <div align="center">Name</div></th>
+    <th width="350"> <div align="center">Comment </div></th>
+    <th width="150"> <div align="center">Link </div></th>
   </tr>
-    <?php
-    $i=1;
-    while ($row=mysqli_fetch_array($result)){
-      ?>
-      <tr>
-    <td><?php echo $row['ID']?></td>
-    <td><?php echo $row['Name']?></td>
-    <td><?php echo $row['Comment']?></td>
-    <td><?php echo $row['Link']?></td>
-    <td>
-      <div class="btn-group" role="group" aria-label="Basic example">
-      <a href="edit_menu.php?ID=<?php echo $row['ID']?>" class="btn btn-secondary">แก้ไข</a>
-      <a href="del_menu.php?ID=<?php echo $row['ID']?>" class="btn btn-secondary"onclick="return confirm('ยืนยันการลบข้อมูล?')">ลบ</a>
-      </div>
-    </td>
+<?php
+while($Result = mysqli_fetch_array($res))
+{
+?>
+  <tr>
+    <td><?php echo $Result['Name'];?></div></td>
+    <td><?php echo $Result['Comment'];?></td>
+    <td><?php echo $Result['Link'];?></td>
   </tr>
-  <?php
-  $i++;
+<?php
 }
 ?>
 </table>
-<a href="register.php" class="btn btn-primary btn-lg btn-block">เพิ่มข้อมูล</a>
-</div>
-  </body>
+<?php
+mysqli_close($conn);
+?>
+</body>
 </html>
