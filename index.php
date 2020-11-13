@@ -13,7 +13,7 @@ if (mysqli_connect_errno($conn))
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
-<table width="600" border="1">
+<table width="600" border="1" class="table table-striped table-dark">
   <tr class="bg-info">
     <th width="100"> <div align="center">Name</div></th>
     <th width="350"> <div align="center">Comment </div></th>
@@ -23,13 +23,11 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 while($Result = mysqli_fetch_array($res))
 {
 ?>
-  <tr class="table table-striped table-dark">
+  <tr>
     <td><?php echo $Result['Name'];?></div></td>
     <td><?php echo $Result['Comment'];?></td>
     <td><?php echo $Result['Link'];?></td>
     <td>
-      \\\<a href="edit_menu.php?ID=<?php echo $Result['ID']?>" class="btn btn-secondary">EDIT</a>
-      \\\<a href="del.php?ID=<?php echo $Result['ID']?>" class="btn btn-secondary"onclick="return confirm('Confirm data deletion?')">DELETE</a>
       <button type="button" class="btn btn-outline-success">EDIT</button>
       <button type="button" onclick = "del.php?ID=<?php echo $Result['ID']?> class="btn btn-outline-danger">DELEYE</button>
     </td>
