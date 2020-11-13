@@ -26,6 +26,12 @@ while($Result = mysqli_fetch_array($res))
     <td><?php echo $Result['Name'];?></div></td>
     <td><?php echo $Result['Comment'];?></td>
     <td><?php echo $Result['Link'];?></td>
+    <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="edit_menu.php?ID=<?php echo $row['ID']?>" class="btn btn-secondary">EDIT</a>
+      <a href="del_menu.php?ID=<?php echo $row['ID']?>" class="btn btn-secondary"onclick="return confirm('Confirm data deletion?')">DELETE</a>
+      </div>
+    </td>
   </tr>
 <?php
 }
