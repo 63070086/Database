@@ -1,5 +1,9 @@
 <?php
-include 'connect.php';
+$conn = mysqli_init();
+mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306)
+if(mysqli_connect_errno($conn)){
+  die('Failed to connect'.mysqli_connect_error());
+}
 $sql="SELECT * FROM guestbook";
 $result=$con->query($sql);
 ?>
