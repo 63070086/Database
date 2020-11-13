@@ -4,8 +4,7 @@ mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@dat
 if(mysqli_connect_errno($conn)){
   die('Failed to connect'.mysqli_connect_error());
 }
-$sql="SELECT * FROM guestbook";
-$result=$con->query($sql);
+$res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
