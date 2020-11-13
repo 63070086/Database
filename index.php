@@ -28,8 +28,8 @@ while($Result = mysqli_fetch_array($res))
     <td><?php echo $Result['Comment'];?></td>
     <td><?php echo $Result['Link'];?></td>
     <td>
-      <button type="button" class="btn btn-outline-success">EDIT</button>
-      <button type="button" onclick = "del.php?ID=<?php echo $Result['ID']?> class="btn btn-outline-danger">DELEYE</button>
+      <a href="edit_menu.php?ID=<?php echo $Result['ID']?>" >EDIT</a>
+      <button type="button" a href="del.php?ID=<?php echo $Result['ID']?>" onclick="return confirm('Confirm data deletion?')">Success</button>
     </td>
   </tr>
 <?php
