@@ -1,11 +1,12 @@
 <?php
-$id=$_GET['menu_ID'];
-include '../connect.php';
-$sql="DELETE FROM menu WHERE menu_ID='$id'";
+$id=$_GET['ID'];
+$conn = mysqli_init();
+mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
+$sql="DELETE FROM menu WHERE ID='$id'";
 $result=$con->query($sql);
 if($result){
-  header('location:menu.php');
+  header('location:index.php');
 }else{
-  echo"<script>alert('ไม่สามารถลบข้อมูลได้')</script>";
+  echo"<script>alert('The data cannot be deleted.')</script>";
 }
 ?>
