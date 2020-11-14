@@ -19,4 +19,3 @@ echo "$row['ID']";
     <input type="submit" class="btn btn-outline-warning">
   </form>
 </div>
-</html>
