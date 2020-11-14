@@ -4,9 +4,11 @@ $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
 $sql="SELECT * FROM guestbook WHERE ID='$id'";
 $row=mysqli_fetch_array($conn);
-echo "$id";
+if (mysqli_connect_errno($conn))
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
  ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <div class="container" style="width:600px;margin-top:50px;">
   <form action = "update.php?ID=<?php echo $row["ID"]; ?>" method = "post"class="form-group">
     Name:<br>
@@ -16,3 +18,5 @@ echo "$id";
     Link:<br>
     <input type="text" name = "Link" value="<?php echo "$row[Link]"; ?>"> <br><br>
     <input type="submit" class="btn btn-outline-warning">
+  </form>
+</div>
