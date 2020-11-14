@@ -10,7 +10,7 @@ $row = mysqli_fetch_array($res)
     Name:<br>
     <input type="text" name = "Name" id="idName" value="<?php echo "$row[Name]"; ?>" <br>
     Comment:<br>
-    <textarea rows="10" cols="20" name = "Comment" id="idComment" value="<?php echo "$row[Comment]"; ?>"></textarea><br>  
+    <input type="text" name = "Name" id="idComment" value="<?php echo "$row[Comment]"; ?>" <br>
     Link:<br>
     <input type="text" name = "Link" id="idLink" value="<?php echo "$row[Link]"; ?>"> <br><br>
     <input type="submit" id="commentBtn"class="btn btn-outline-warning">
