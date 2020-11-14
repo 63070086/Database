@@ -4,7 +4,7 @@ $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
 $sql="SELECT * FROM guestbook WHERE ID='$id'";
 $row=mysqli_fetch_array($conn);
-if (mysqli_connect_errno($conn))
+if (mysqli_connect_errno($row))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
