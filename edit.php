@@ -1,17 +1,17 @@
 <?php
-$id=$_GET['ID'];
-$conn = mysqli_init();
-mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
-$row = mysqli_query($conn, "SELECT * FROM guestbook WHERE ID='$id'");
- ?>
-<div class="container" style="width:600px;margin-top:50px;">
-  <form action = "update.php?ID=<?php echo $row["ID"]; ?>" method = "post"class="form-group">
+include 'navbar.php';
+$id=$_GET['menu_ID'];
+include '../connect.php';
+$sql="SELECT * FROM menu WHERE menu_ID='$id'";
+$result=$con->query($sql);
+$row=mysqli_fetch_array($result);
+?>
+<form action = "update.php" method = "post" id="CommentForm" class="form-group">
     Name:<br>
-    <input type="text" name = "Name" value="<?php echo "321"; ?>"> <br>
-		Comment:<br>
-    <textarea rows="10" cols="20" name = "Comment" value="<?php echo "$row[Comment]"; ?>"></textarea><br>
+    <input type="text" name = "name" id="idName" <br>
+    Comment:<br>
+    <textarea rows="10" cols="20" name = "comment" id="idComment" ></textarea><br>  
     Link:<br>
-    <input type="text" name = "Link" value="<?php echo "$row[Link]"; ?>"> <br><br>
-    <input type="submit" class="btn btn-outline-warning">
-  </form>
-</div>
+    <input type="text" name = "link" id="idLink" > <br><br>
+    <input type="submit" id="commentBtn"class="btn btn-outline-warning">
+  </form> 
