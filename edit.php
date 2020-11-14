@@ -6,7 +6,7 @@ $res = mysqli_query($conn, "SELECT * FROM guestbook WHERE ID='$id'");
 $row = mysqli_fetch_array($res)
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<div class="container" style="width:600px;margin-top:50px;">
+<div class="form-group" style="width:600px;margin-top:50px;">
 <form action = "update.php?ID=<?php echo $row['ID']; ?>" method = "post" id="CommentForm" class="form-group">
     Name:<br>
     <input type="text" name = "Name" id="idName" value="<?php echo "$row[Name]"; ?>" <br>
