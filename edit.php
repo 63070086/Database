@@ -2,7 +2,6 @@
 $id=$_GET['ID'];
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
-$sql="SELECT * FROM guestbook WHERE ID='$id'";
 $row = mysqli_query($conn, "SELECT * FROM guestbook WHERE ID='$id'");
  ?>
 <div class="container" style="width:600px;margin-top:50px;">
