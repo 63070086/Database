@@ -2,7 +2,7 @@
 $id=$_GET['ID'];
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
-$row=mysqli_fetch_array($conn);
+$row = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
 <div class="container" style="width:600px;margin-top:50px;">
 <form action = "update.php?ID=<?php echo $row['ID']; ?>" method = "post" id="CommentForm" class="form-group">
