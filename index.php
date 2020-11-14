@@ -28,15 +28,15 @@ while($Result = mysqli_fetch_array($res))
     <td><?php echo $Result['Comment'];?></td>
     <td><?php echo $Result['Link'];?></td>
     <td>
-      <a href="edit_menu.php?ID=<?php echo $Result['ID']?>" >EDIT</a>
-      <a href="del.php?ID=<?php echo $Result['ID']?>" class="btn btn-secondary"onclick="return confirm('Confirm data deletion?')">DELETE</a>
+      <a href="edit_menu.php?ID=<?php echo $Result['ID']?>" class="btn btn-outline-success" >EDIT</a>
+      <a href="del.php?ID=<?php echo $Result['ID']?>" class="btn btn-outline-danger"onclick="return confirm('Confirm data deletion?')">DELETE</a>
     </td>
   </tr>
 <?php
 }
 ?>
 </table>
-<button type="button" class="btn btn-outline-warning" onclick = "show.php">ADD</button>                                                                                                       
+<button type="button" class="btn btn-outline-warning" onclick ="window.location.href='show.php'">ADD</button>                                                                                                       
 <?php
 mysqli_close($conn);
 ?>
