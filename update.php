@@ -6,7 +6,6 @@ $name=$_POST['Name'];
 $comment=$_POST['Comment'];
 $link=$_POST['Link'];
 $sql="UPDATE guestbook SET Name='$name',Comment='$comment',Link='$link' WHERE ID='$id'";
-$result=$con->query($sql);
 if (mysqli_query($conn, $sql)) {
     header("Location: index.php");
   } else {
