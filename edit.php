@@ -2,8 +2,8 @@
 $id=$_GET['ID'];
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
-$result=mysqli_query("SELECT * FROM guestbook WHERE ID='$id'")
-$row=mysqli_fetch_array($result);
+$res = mysqli_query($conn, 'SELECT * FROM guestbook');
+$row = mysqli_fetch_array($res)
 ?>
 <div class="container" style="width:600px;margin-top:50px;">
 <form action = "update.php?ID=<?php echo $row['ID']; ?>" method = "post" id="CommentForm" class="form-group">
