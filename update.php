@@ -1,5 +1,5 @@
 <?php
-$id=$_GET['menu_ID'];
+$id=$_GET['ID'];
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
 $name=$_POST['Name'];
