@@ -3,8 +3,7 @@ $id=$_GET['ID'];
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'databaseitf.mysql.database.azure.com', 'superoof@databaseitf', 'Pin187932', 'itflab', 3306);
 $sql="SELECT * FROM guestbook WHERE ID='$id'";
-$result=$con->query($sql);
-$row=mysqli_fetch_array($result);
+$row=mysqli_fetch_array($conn);
  ?>
 <!DOCTYPE html>
 <html>
